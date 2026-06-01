@@ -133,7 +133,7 @@ export default function Products() {
     } catch (err) {
       console.error(err);
       const msg = err.cleanedMessage || "Operation failed.";
-      
+
       // If error represents unique SKU violation
       if (msg.includes("SKU") || msg.toLowerCase().includes("duplicate")) {
         setError("sku", { type: "manual", message: msg });
@@ -339,7 +339,7 @@ export default function Products() {
         <DialogTitle sx={{ fontWeight: 700, pb: 1, fontFamily: "'Outfit', sans-serif" }}>
           {selectedProduct ? "Update Product Catalog" : "Add New Catalog Product"}
         </DialogTitle>
-        
+
         <form onSubmit={handleSubmit(onSubmitForm)}>
           <DialogContent sx={{ py: 2 }}>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
@@ -363,7 +363,7 @@ export default function Products() {
                 helperText={errors.sku?.message}
               />
               <TextField
-                label="Unit Price ($)"
+                label="Unit Price"
                 type="number"
                 inputProps={{ step: "0.01" }}
                 variant="outlined"
