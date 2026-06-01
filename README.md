@@ -228,3 +228,34 @@ To build, tag, and publish the backend image to your public Docker Hub registry,
 ```
 
 This compiles, tags, and guides you to run `docker login` and `docker push` commands.
+
+## Deployment URLs
+
+See `DEPLOYMENT.md` for a complete step-by-step guide to achieving these links.
+
+| Resource | Link |
+|----------|------|
+| GitHub Repository | `<Insert GitHub Link Here>` |
+| Docker Hub Image | `<Insert Docker Hub Link Here>` |
+| Frontend URL | `<Insert Vercel Frontend URL Here>` |
+| Backend API URL | `<Insert Render Backend URL Here>` |
+
+## Screenshots
+
+*(Placeholder for adding screenshots once deployed)*
+- Dashboard Overview
+- Product Management
+- Order Checkout Wizard
+
+## Assumptions
+
+1. **Authentication:** No Authentication or Authorization is implemented as per the requirements. All APIs are public.
+2. **Currency:** All financial values are treated as simple floats/decimals for demonstration purposes. In a real-world app, standard integer-based cent representations or dedicated currency libraries should be used.
+3. **Inventory Logic:** Refunds and returns are out of scope. Inventory is deducted immediately on order creation.
+
+## Future Improvements
+
+- Implement JWT based Authentication and RBAC (Role Based Access Control).
+- Integrate Redis for caching frequent dashboard queries.
+- Add pagination for tables (Products, Customers, Orders).
+- Build automated refund handling and order status tracking.

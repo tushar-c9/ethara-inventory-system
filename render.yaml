@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: inventory-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: APP_ENV
+        value: production
+      - key: CORS_ORIGINS
+        sync: false
+    healthCheckPath: /
+    autoDeploy: true
