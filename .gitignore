@@ -1,0 +1,46 @@
+# Caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.eslintcache
+.cache/
+
+# Local configuration
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Dependencies
+node_modules/
+jspm_packages/
+
+# Production builds
+dist/
+build/
+out/
+
+# Database
+*.db
+*.sqlite3
+postgres_data/
+.docker-data/
+
+# IDE files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
