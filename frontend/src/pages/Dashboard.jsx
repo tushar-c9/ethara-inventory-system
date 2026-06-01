@@ -230,7 +230,7 @@ export default function Dashboard() {
                           <TableCell sx={{ fontWeight: 600 }}>{product.name}</TableCell>
                           <TableCell sx={{ fontFamily: "monospace", color: "secondary.main" }}>{product.sku}</TableCell>
                           <TableCell align="right" sx={{ fontWeight: 700 }}>
-                            ${product.price.toFixed(2)}
+                            ₹{product.price.toFixed(2)}
                           </TableCell>
                           <TableCell align="center" sx={{ fontWeight: 800 }}>
                             <Box

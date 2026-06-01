@@ -54,14 +54,14 @@ def seed_database():
 
         # 2. Seed Products (Including standard and low-stock items)
         seed_products = [
-            Product(name="Quantum Laptop Pro", sku="TECH-LAP-001", price=1299.99, stock_quantity=24),
-            Product(name="Ergonomic Mechanical Keyboard", sku="TECH-KEY-002", price=149.50, stock_quantity=8),  # Low Stock!
-            Product(name="UltraWide Gaming Monitor 34\"", sku="TECH-MON-003", price=450.00, stock_quantity=15),
-            Product(name="Precision Wireless Mouse", sku="TECH-MOU-004", price=79.99, stock_quantity=5),   # Low Stock!
-            Product(name="Noise Cancelling Headphones", sku="TECH-AUD-005", price=299.99, stock_quantity=12),
-            Product(name="Bamboo Smart Standing Desk", sku="FURN-DSK-001", price=599.00, stock_quantity=4),   # Low Stock!
-            Product(name="Premium Leather Office Chair", sku="FURN-CHR-002", price=349.99, stock_quantity=11),
-            Product(name="USB-C Dual 4K Docking Station", sku="TECH-DOCK-006", price=189.99, stock_quantity=30),
+            Product(name="Quantum Laptop Pro", sku="TECH-LAP-001", price=75000.00, stock_quantity=24),
+            Product(name="Ergonomic Mechanical Keyboard", sku="TECH-KEY-002", price=4500.00, stock_quantity=8),  # Low Stock!
+            Product(name="UltraWide Gaming Monitor 34\"", sku="TECH-MON-003", price=25000.00, stock_quantity=15),
+            Product(name="Precision Wireless Mouse", sku="TECH-MOU-004", price=2000.00, stock_quantity=5),   # Low Stock!
+            Product(name="Noise Cancelling Headphones", sku="TECH-AUD-005", price=12000.00, stock_quantity=12),
+            Product(name="Bamboo Smart Standing Desk", sku="FURN-DSK-001", price=18000.00, stock_quantity=4),   # Low Stock!
+            Product(name="Premium Leather Office Chair", sku="FURN-CHR-002", price=8500.00, stock_quantity=11),
+            Product(name="USB-C Dual 4K Docking Station", sku="TECH-DOCK-006", price=6500.00, stock_quantity=30),
         ]
         for p in seed_products:
             db.add(p)
@@ -69,9 +69,9 @@ def seed_database():
 
         # 3. Seed Customers
         seed_customers = [
-            Customer(full_name="Alice Smith", email="alice.smith@ethara.ai", phone="+1 (555) 123-4567"),
-            Customer(full_name="Robert Johnson", email="robert.j@example.com", phone="+1 (555) 987-6543"),
-            Customer(full_name="Emily Davis", email="emily.davis@design.co", phone="+44 7911 123456"),
+            Customer(full_name="Aarohi Sharma", email="aarohi.sharma@ethara.ai", phone="+91 98765 43210"),
+            Customer(full_name="Rahul Verma", email="rahul.v@example.com", phone="+91 87654 32109"),
+            Customer(full_name="Priya Patel", email="priya.patel@design.co", phone="+91 76543 21098"),
         ]
         for c in seed_customers:
             db.add(c)

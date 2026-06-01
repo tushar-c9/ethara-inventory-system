@@ -302,8 +302,10 @@ export default function Orders() {
                     <TableCell align="right" sx={{ fontWeight: 600 }}>
                       {order.items?.reduce((sum, item) => sum + item.quantity, 0)} items
                     </TableCell>
-                    <TableCell align="right" sx={{ fontWeight: 800, color: "primary.main" }}>
-                      ${order.total_amount.toFixed(2)}
+                    <TableCell align="right">
+                      <Typography variant="body1" sx={{ fontWeight: 700, color: "text.primary" }}>
+                        ₹{order.total_amount.toFixed(2)}
+                      </Typography>
                     </TableCell>
                     <TableCell sx={{ color: "text.secondary" }}>
                       {new Date(order.created_at).toLocaleDateString(undefined, {
@@ -374,8 +376,8 @@ export default function Orders() {
                   <Typography variant="body2" sx={{ color: "text.secondary" }}>{selectedOrder.customer?.email}</Typography>
                 </Box>
                 <Box sx={{ textAlign: "right" }}>
-                  <Typography variant="caption" sx={{ color: "text.secondary", fontWeight: 600 }}>TRANSACTION SUM</Typography>
-                  <Typography variant="h5" sx={{ fontWeight: 900, color: "primary.main" }}>${selectedOrder.total_amount.toFixed(2)}</Typography>
+                  <Typography variant="body2" color="text.secondary" gutterBottom>Total Amount</Typography>
+                  <Typography variant="h5" sx={{ fontWeight: 900, color: "primary.main" }}>₹{selectedOrder.total_amount.toFixed(2)}</Typography>
                 </Box>
               </Box>
 
@@ -388,21 +390,18 @@ export default function Orders() {
                   <TableHead>
                     <TableRow>
                       <TableCell>Product Item</TableCell>
-                      <TableCell align="right">Qty</TableCell>
+                      <TableCell align="center">Qty</TableCell>
                       <TableCell align="right">Unit Price</TableCell>
                       <TableCell align="right">Subtotal</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     {selectedOrder.items?.map((item) => (
-                      <TableRow key={item.id}>
-                        <TableCell sx={{ py: 1.5 }}>
-                          <Typography variant="body2" sx={{ fontWeight: 600 }}>{item.product?.name || "Product Record Removed"}</Typography>
-                          <Typography variant="caption" sx={{ color: "secondary.main", fontFamily: "monospace" }}>{item.product?.sku}</Typography>
-                        </TableCell>
-                        <TableCell align="right" sx={{ fontWeight: 600 }}>{item.quantity}</TableCell>
-                        <TableCell align="right">${item.unit_price.toFixed(2)}</TableCell>
-                        <TableCell align="right" sx={{ fontWeight: 700, color: "primary.main" }}>${item.subtotal.toFixed(2)}</TableCell>
+                      <TableRow key={item.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+                        <TableCell component="th" scope="row">{item.product.name}</TableCell>
+                        <TableCell align="center">{item.quantity}</TableCell>
+                        <TableCell align="right">₹{item.unit_price.toFixed(2)}</TableCell>
+                        <TableCell align="right" sx={{ fontWeight: 700, color: "primary.main" }}>₹{item.subtotal.toFixed(2)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -484,8 +483,8 @@ export default function Orders() {
                           onChange={(e) => handleLineChange(idx, "product_id", e.target.value)}
                         >
                           {products.map((p) => (
-                            <MenuItem key={p.id} value={p.id}>
-                              {p.name} (${p.price.toFixed(2)} - Stock: {p.stock_quantity})
+                            <MenuItem key={p.id} value={p.id} disabled={p.stock_quantity === 0}>
+                              {p.name} (₹{p.price.toFixed(2)} - Stock: {p.stock_quantity})
                             </MenuItem>
                           ))}
                         </Select>
@@ -505,7 +504,7 @@ export default function Orders() {
                     {/* Live Line Price Preview */}
                     <Grid item xs={2}>
                       <Typography variant="body2" sx={{ fontWeight: 700, textAlign: "right", color: "primary.main" }}>
-                        {selectedProd ? `$${(selectedProd.price * (line.quantity || 0)).toFixed(2)}` : "$0.00"}
+                        {selectedProd ? `₹${(selectedProd.price * (line.quantity || 0)).toFixed(2)}` : "₹0.00"}
                       </Typography>
                     </Grid>
                     {/* Delete Line Action */}
@@ -529,7 +528,7 @@ export default function Orders() {
             <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3 }}>
               <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Estimated Total:</Typography>
               <Typography variant="h5" sx={{ fontWeight: 900, color: "primary.main" }}>
-                ${calculateTotalEstimate().toFixed(2)}
+                ₹{calculateTotalEstimate().toFixed(2)}
               </Typography>
             </Box>
 
